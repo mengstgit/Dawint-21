@@ -3,7 +3,8 @@ const express = require('express');
 const ejs = require('ejs');
 const ejsMate = require('ejs-mate');
 const bodyParser = require('body-parser');
-const port = process.env.PORT || 3000;
+
+const port = process.env.PORT || 8080;
 const User = require('./models/user'); 
 
 /*express */
