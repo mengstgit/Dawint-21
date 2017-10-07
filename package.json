@@ -1,0 +1,26 @@
+{
+  "name": "grill",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "assert": "^1.4.1",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.7",
+    "ejs-mate": "^2.3.0",
+    "express": "^4.16.1",
+    "express-flash": "0.0.2",
+    "express-session": "^1.15.6",
+    "express-validator": "^4.2.1",
+    "mongo": "^0.1.0",
+    "mongodb": "^2.2.31",
+    "mongoose": "^4.12.0",
+    "nodemon": "^1.12.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
