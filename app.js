@@ -5,6 +5,7 @@ const ejsMate = require('ejs-mate');
 const bodyParser = require('body-parser');
 
 const User = require('./models/user'); 
+const secret = require('./config/secret');
 
 /*express */
 const app = express();
@@ -28,8 +29,8 @@ app.use(contactRoute);
 app.use(singlePostRoute);
 
 
-const port = process.env.PORT || 8080;
-app.set('port', process.env.PORT || 8080);
+const port = process.env.PORT || secret.port;
+app.set('port', process.env.PORT || secret.port);
 /* server */
 app.listen(port, () => {
 	 console.log(`app is listening on port ${port}`);

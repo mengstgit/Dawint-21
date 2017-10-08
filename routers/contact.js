@@ -1,20 +1,31 @@
 const express = require('express');
 const router = express.Router();
+const User = require('../models/user');
+const bodyParser = require('body-parser');
 const mongo = require('mongo');
 const mongoose = require('mongoose');
-
-
-const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
-const session = require('express-session');
-const expressValidator = require('express-validator');
-const flash = require('express-flash');
 const assert = require('assert');
+const expressValidator = require('express-validator');
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
+const flash = require('express-flash');
+const secret = require('../config/secret');
 
-const User = require('../models/user');
 
-const url = 'mongodb://admin:admin@ds113795.mlab.com:13795/grill';
-
+const metaTags = {
+	    title : 'Contact Page',
+		metaTagsUrl: 'localhost:/3000/contact',
+		metaTagsSite: '@grill',
+		metaTagsImg: 'localhost:3000//url/img.png',
+		metaTagsTitle: 'Know About Grill',
+		metaTagsName: 'Test',
+		metaTagsType: 'https://www.grill.com/about',
+		metaTagsDescription: "This is About Grill",
+		metaTagsRobots: 'index,follow',
+		metaTagsKeyWords: 'About Grill, About the company Grill, About who grill is',
+		errors : [],
+		success_msg: []
+};
 
 router.use(expressValidator({
     errorFormatter: function(param, msg, value) {
@@ -42,7 +53,7 @@ router.use(cookieParser());
 router.use(session({
     resave : true,
     saveUninitialized: true,
-    secret: 'rq23effq4'
+    secret: secret.secretKey
 }));
 
 router.use(flash());
@@ -53,20 +64,7 @@ router.use(function(req, res, next) {
     next();
 });
 
-const metaTags = {
-	    title : 'Contact Page',
-		metaTagsUrl: 'localhost:/3000/contact',
-		metaTagsSite: '@grill',
-		metaTagsImg: 'localhost:3000//url/img.png',
-		metaTagsTitle: 'Know About Grill',
-		metaTagsName: 'Test',
-		metaTagsType: 'https://www.grill.com/about',
-		metaTagsDescription: "This is About Grill",
-		metaTagsRobots: 'index,follow',
-		metaTagsKeyWords: 'About Grill, About the company Grill, About who grill is',
-		errors : [],
-		success_msg: []
-};
+
 router.get('/contact', (req, res) => {
    res.render('../views/main/contact', metaTags);
 });
@@ -82,8 +80,8 @@ router.post('/send_message', (req, res) => {
       const errors = req.validationErrors();
 
       if(errors) {
+         req.flash('errors', 'please check the form details');
       	 metaTags.errors = errors;
-      	 req.flash('errors', 'Please enter form Details');
       	 res.render('../views/main/contact', metaTags);
 
       } else {
@@ -95,7 +93,7 @@ router.post('/send_message', (req, res) => {
       	 });
         console.log(formData);
        
-      	 mongoose.connect(url);
+      	 mongoose.connect(secret.database);
       	 const db = mongoose.connection;
 
       	 db.on('error', (err) => {
@@ -103,21 +101,17 @@ router.post('/send_message', (req, res) => {
       	 });
          db.open();
       	 db.once('open', () => {
-      	 	console.log('data is inserted');
-      	 	//assert.equal(null, err);
       	 	db.collection('grill_data').save(formData, (err) => {
                   assert.equal(null, err);
                   console.log('data is inserted');
-                  req.flash('success_msg', 'Thanks for dropping by');
-                res.render('../views/main/contact', metaTags);
+                  db.close();
+                  req.flash('success_msg', 'Thanks for dropping us a message');
+                  res.render('../views/main/contact', metaTags);
              
       	   });
       	 });
-      	 db.close();
+
       }
-
-      
-
-})
+});
 
 module.exports = router;
