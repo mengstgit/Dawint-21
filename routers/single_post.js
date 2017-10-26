@@ -4,9 +4,9 @@ const router = express.Router();
 router.get('/single_post', (req, res) => {
 	const metaTags = {
 		    title: 'single_post',
-			metaTagsUrl: 'https://Test.com/',
+			metaTagsUrl: 'localhost:/3000/single_post',
 			metaTagsSite: '@grill',
-			metaTagsImg: 'https://url/img.png',
+			metaTagsImg: 'localhost:/3000/img.png',
 			metaTagsTitle: 'Know About Grill',
 			metaTagsName: 'Test',
 			metaTagsType: 'https://www.grill.com/about',
@@ -14,7 +14,7 @@ router.get('/single_post', (req, res) => {
 			metaTagsRobots: 'index,follow',
 			metaTagsKeyWords: 'About Grill, About the company Grill, About who grill is'
 	};
-	res.render('../views/main/about', metaTags);
+	res.render('../views/main/single_post', metaTags);
 
 });
 

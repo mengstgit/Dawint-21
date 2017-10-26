@@ -12,7 +12,7 @@ const app = express();
 
 const homeRoute = require('./routers/index');
 const aboutRoute = require('./routers/about');
-const productsRoute = require('./routers/products');
+const productsRoute = require('./routers/archive');
 const contactRoute = require('./routers/contact');
 const singlePostRoute = require('./routers/single_post');
 
@@ -27,7 +27,7 @@ app.use(aboutRoute);
 app.use(productsRoute);
 app.use(contactRoute);
 app.use(singlePostRoute);
-
+app.use(express.static(__dirname + '/public'));
 
 const port = process.env.PORT || secret.port;
 app.set('port', process.env.PORT || secret.port);

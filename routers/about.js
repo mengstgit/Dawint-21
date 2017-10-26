@@ -5,9 +5,9 @@ const router = express.Router();
 router.get('/about', (req, res) => {
 	const metaTags = {
 		title: 'About Page',
-		metaTagsUrl: 'https://www.grill.com',
+		metaTagsUrl: 'localhost:/3000/about',
 		metaTagsSite: '@grill',
-		metaTagsImg: 'https://url/img.png',
+		metaTagsImg: 'localhost:/3000/img.png',
 		metaTagsTitle: 'Test',
 		metaTagsName: 'Grill',
 		metaTagsType: 'website',

@@ -66,7 +66,7 @@ router.use(function(req, res, next) {
 
 
 router.get('/contact', (req, res) => {
-   res.render('../views/main/contact', metaTags);
+   res.render('../views/main/contact.ejs', metaTags);
 });
 
 /* Process Form Data */

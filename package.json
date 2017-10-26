@@ -1,7 +1,6 @@
 {
   "name": "grill",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "dependencies": {
     "assert": "^1.4.1",
@@ -16,8 +15,10 @@
     "express-validator": "^4.2.1",
     "heroku": "^0.2.0",
     "mongo": "^0.1.0",
+    "mongod": "^2.0.0",
     "mongodb": "^2.2.31",
-    "mongoose": "^4.12.0",
+    "mongoose": "^4.12.4",
+    "morgan": "^1.9.0",
     "nodemon": "^1.12.1"
   },
   "devDependencies": {},
@@ -25,5 +26,14 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mengstgit/grill.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mengstgit/grill/issues"
+  },
+  "homepage": "https://github.com/mengstgit/grill#readme",
+  "description": ""
 }
