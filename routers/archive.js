@@ -8,12 +8,12 @@ router.get('/archive', (req, res) => {
 			metaTagsUrl: 'localhost:/3000/archive',
 			metaTagsSite: '@grill',
 			metaTagsImg: 'localhost:/3000/img.png',
-			metaTagsTitle: 'Know About Grill',
+			metaTagsTitle: 'Know About Coffee',
 			metaTagsName: 'Test',
 			metaTagsType: 'localhost:/3000/about',
 			metaTagsDescription: "This is About Grill",
 			metaTagsRobots: 'index,follow',
-			metaTagsKeyWords: 'About Grill, About the company Grill, About who grill is'
+			metaTagsKeyWords: 'About Coffee, About the company Grill, About who grill is'
 	};
 	res.render('../views/main/archive', metaTags);
 
