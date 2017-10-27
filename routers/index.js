@@ -5,15 +5,15 @@ const router = express.Router();
 router.get('/', (req, res) => {
 	const metaTags = {
 		    title: 'Home Page',
-			metaTagsUrl: 'localhost:/3000',
-			metaTagsSite: '@grill',
+			metaTagsUrl: 'localhost:/3000/',
+			metaTagsSite: '@coffee',
 			metaTagsImg: 'localhost:/3000/img.png',
-			metaTagsTitle: 'Know About Grill',
+			metaTagsTitle: 'Know About Coffee',
 			metaTagsName: 'Test',
-			metaTagsType: 'https://www.grill.com/about',
-			metaTagsDescription: "This is About Grill",
+			metaTagsType: 'https://www.coffee.com/about',
+			metaTagsDescription: "This is About Coffee",
 			metaTagsRobots: 'index,follow',
-			metaTagsKeyWords: 'About Grill, About the company Grill, About who grill is'
+			metaTagsKeyWords: 'About Coffee, About the company Coffee, About who coffee is'
 	};
 	res.render('../views/main/index', metaTags);
 

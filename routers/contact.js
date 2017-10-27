@@ -15,14 +15,14 @@ const secret = require('../config/secret');
 const metaTags = {
 	    title : 'Contact Page',
 		metaTagsUrl: 'localhost:/3000/contact',
-		metaTagsSite: '@grill',
+		metaTagsSite: '@ coffee',
 		metaTagsImg: 'localhost:3000//url/img.png',
-		metaTagsTitle: 'Know About Grill',
+		metaTagsTitle: 'Know About Coffe',
 		metaTagsName: 'Test',
-		metaTagsType: 'https://www.grill.com/about',
-		metaTagsDescription: "This is About Grill",
+		metaTagsType: 'https://www. coffee.com/contact',
+		metaTagsDescription: "This is About Coffe",
 		metaTagsRobots: 'index,follow',
-		metaTagsKeyWords: 'About Grill, About the company Grill, About who grill is',
+		metaTagsKeyWords: 'About Coffe, About the company Coffe, About who coffe is',
 		errors : [],
 		success_msg: []
 };
@@ -66,11 +66,11 @@ router.use(function(req, res, next) {
 
 
 router.get('/contact', (req, res) => {
-   res.render('../views/main/contact.ejs', metaTags);
+   res.render('../views/main/contact', metaTags);
 });
 
 /* Process Form Data */
-router.post('/send_message', (req, res) => {
+router.post('/Process_form', (req, res) => {
       req.checkBody('name', 'Name is required').notEmpty();
       req.checkBody('email', 'Email is required').notEmpty();
       req.checkBody('email', 'Email is not valid').isEmail();;
@@ -101,7 +101,7 @@ router.post('/send_message', (req, res) => {
       	 });
          db.open();
       	 db.once('open', () => {
-      	 	db.collection('grill_data').save(formData, (err) => {
+      	 	db.collection(' coffee_data').save(formData, (err) => {
                   assert.equal(null, err);
                   console.log('data is inserted');
                   db.close();

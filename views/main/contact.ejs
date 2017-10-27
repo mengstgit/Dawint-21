@@ -30,33 +30,34 @@
                                 <div class="contact">
                                     <h3 style="margin: 20px 0 20px 30px">Contact Form</h3>
                                     <div id="contact_form">
-                                        <form name="form1" id="ff" method="post" action="contact.php">
-                                            <label class="row">
-                                                <div class="col-1-2">
-                                                    <div class="wrap-col">
-                                                        <input type="text" name="name" id="name" placeholder="Enter name" required="required">
-                                                    </div>
-                                                </div>
-                                                <div class="col-1-2">
-                                                    <div class="wrap-col">
-                                                        <input type="email" name="email" id="email" placeholder="Enter email" required="required">
-                                                    </div>
-                                                </div>
-                                            </label>
-                                            <label class="row">
-                                                <div class="col-full">
-                                                    <div class="wrap-col">
-                                                    <input type="text" name="subject" id="subject" placeholder="Subject" required="required">
-                                                    </div>
-                                                </div>
-                                            </label>
-                                            <label class="row">
-                                                <div class="wrap-col">
-                                                    <textarea name="message" id="message" class="form-control" rows="4" cols="25" required="required" placeholder="Message"></textarea>
-                                                </div>
-                                            </label>
-                                            <center><input class="sendButton" type="submit" name="submitcontact" value="Submit"></center>
-                                        </form>
+                                        <form action="/process_form" method="POST">
+    <legend>Contact Form</legend>
+    <div>
+      <label for="">Name: </label>
+      <input class="form-control" type="text" placeholder="name" name="name">
+      <% if(errors.length > 0 && errors.find(error => error.param === 'name')) { %>
+             <p class="text-danger"> <%= errors.find(error => error.param === 'name').msg %></p>
+      <% } %>
+    </div>
+      <div>
+      <label for="">Email: </label>
+      <input class="form-control" type="email" placeholder="email" name="email">
+        <% if(errors.length > 0 && errors.find(error => error.param === 'email')) { %>
+             <p class="text-danger"> <%= errors.find(error => error.param === 'email').msg %></p>
+      <% } %>
+    </div>
+     <div>
+      <label for="">subject: </label>
+      <input class="form-control" type="text" placeholder="subject" name="subject">
+        <% if(errors.length > 0 && errors.find(error => error.param === 'subject')) { %>
+             <p class="text-danger"> <%= errors.find(error => error.param === 'name').msg %></p>
+      <% } %>
+    </div>
+    <textarea class="form-control" name="message" id="" cols="30" rows="10"></textarea>
+      
+    <button type="submit" class="btn btn-success">Send!</button>
+
+</form>
                                     </div>
                                 </div>
                             </div>
