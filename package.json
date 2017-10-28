@@ -23,17 +23,5 @@
     "mongoose": "^4.12.4",
     "morgan": "^1.9.0",
     "nodemon": "^1.12.1"
-  },
-  "devDependencies": {},
-  "author": "mengst",
-  "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mengstgit/Coffee.git"
-  },
-  "bugs": {
-    "url": "https://github.com/mengstgit/coffeeissues"
-  },
-  "homepage": "https://github.com/mengstgit/coffee#readme",
-  "description": ""
+  }
 }
