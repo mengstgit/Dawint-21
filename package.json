@@ -2,9 +2,6 @@
   "name": "coffee",
   "version": "1.0.0",
   "main": "app.js",
-  "scripts": {
-
-}
   "dependencies": {
     "assert": "^1.4.1",
     "cookie-parser": "^1.4.3",
@@ -26,9 +23,11 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node your-script.js"
+    
   },
-
+  "scripts":{
+    "starts":"node app.js"
+  },
   "author": "mengst",
   "license": "ISC",
   "repository": {
