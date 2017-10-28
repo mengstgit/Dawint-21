@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 
 const User = require('./models/user'); 
 const secret = require('./config/secret');
-
+const config = require('./config/secret');
 /*express */
 const app = express();
 
@@ -27,9 +27,8 @@ app.use(productsRoute);
 app.use(contactRoute);
 app.use(express.static(__dirname + '/public'));
 
-const port = process.env.PORT || secret.port;
-app.set('port', process.env.PORT || secret.port);
+
 /* server */
-app.listen(port, () => {
-	 console.log(`app is listening on port ${port}`);
+app.listen(config.port, () => {
+	 console.log(`app is listening on port ${config.port}`);
 });
