@@ -2,6 +2,9 @@
   "name": "coffee",
   "version": "1.0.0",
   "main": "app.js",
+   "scripts":{
+    "starts":"node app.js"
+  },
   "dependencies": {
     "assert": "^1.4.1",
     "cookie-parser": "^1.4.3",
@@ -21,9 +24,6 @@
     "nodemon": "^1.12.1"
   },
   "devDependencies": {},
-  "scripts":{
-    "starts":"node app.js"
-  },
   "author": "mengst",
   "license": "ISC",
   "repository": {
